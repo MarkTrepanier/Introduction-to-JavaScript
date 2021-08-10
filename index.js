@@ -148,8 +148,25 @@ RULES OF THE GAME: Scissors beats Paper | Paper beats Rock | Rock beats Scissors
 HINT: Remember that the order in which we pass in our arguments matters when it comes to parameters
 */
 
+let hand = ['Rock', 'Paper', 'Scissors'];
+let index = Math.floor(Math.random() * 3)
+let computer = hand[index];
 function game(user, computer){
-  /*add your code here*/
+  if (user === 'Rock'){
+    if (computer === 'Rock'){return "it's a tie!"};
+    if (computer === 'Paper'){return "you lose!"};
+    if (computer === 'Scissors'){return "you win!"};
+  }
+  if (user === 'Paper'){
+    if (computer === 'Paper'){return "it's a tie!"};
+    if (computer === 'Scissors'){return "you lose!"};
+    if (computer === 'Rock'){return "you win!"};
+  }
+  if (user === 'Scissors'){
+    if (computer === 'Scissors'){return "it's a tie!"};
+    if (computer === 'Rock'){return "you lose!"};
+    if (computer === 'Paper'){return "you win!"};
+  }
 }
 
 
@@ -165,8 +182,8 @@ Using the miles function below do the following:
 3. Return the number of miles
 */
 
-function miles(/*add your code here*/){
-  /*add your code here*/
+function miles(k){
+  return k * .621;
 }
 
 
@@ -179,8 +196,8 @@ Using the feet function below do the following:
 3. Return number of feet
 */
 
-function feet(/*add your code here*/){
-  /*add your code here*/
+function feet(cm){
+  return Math.round(cm * .0328084);
 }
 
 
@@ -215,7 +232,13 @@ Using the grade function below do the following:
  below should return 'you got an F'
 */
 
-function grade(/*Your Code here */){
+function grade(score){
+  const grade = ['you got an A','you got an B','you got an C','you got an D','you got an F']
+  if (score >= 90 && score <= 100){ return grade[0]}
+  else if (score >= 80 && score <= 189){ return grade[1]}
+  else if (score >= 70 && score <= 79){ return grade[2]}
+  else if (score >= 60 && score <= 69){ return grade[3]}
+  else if (score < 60){return grade[4]}
 /*Your Code here */
 }
 
