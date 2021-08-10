@@ -119,9 +119,9 @@ function hungryDog(wt, age){
   }
   else{
     //puppy scope
-    if (age >= 1/6 && wt <= 1/3){return wt * .10;}
-    else if (age >= 1/3 && wt <= 7/12){return wt * .05;}
-    else{return wt * .04;}
+    if (age >= 1/6 && age <= 1/3){return wt * .10;}
+    else if (age >= 1/3 && age < .583){return wt * .05;}
+    else if (age >= .583){return wt * .04;}
   }
 }
 
@@ -148,27 +148,26 @@ RULES OF THE GAME: Scissors beats Paper | Paper beats Rock | Rock beats Scissors
 HINT: Remember that the order in which we pass in our arguments matters when it comes to parameters
 */
 
-let hand = ['Rock', 'Paper', 'Scissors'];
-let index = Math.floor(Math.random() * 3)
+let hand = ['rock', 'paper', 'scissors'];
+let index = Math.floor(Math.random() * 3);
 let computer = hand[index];
 function game(user, computer){
-  if (user === 'Rock'){
-    if (computer === 'Rock'){return "it's a tie!"};
-    if (computer === 'Paper'){return "you lose!"};
-    if (computer === 'Scissors'){return "you win!"};
+  if(user === computer){
+    return `it's a tie`;
   }
-  if (user === 'Paper'){
-    if (computer === 'Paper'){return "it's a tie!"};
-    if (computer === 'Scissors'){return "you lose!"};
-    if (computer === 'Rock'){return "you win!"};
+  else if (user === 'rock' && computer === 'scissors'){
+    return 'you win!';
   }
-  if (user === 'Scissors'){
-    if (computer === 'Scissors'){return "it's a tie!"};
-    if (computer === 'Rock'){return "you lose!"};
-    if (computer === 'Paper'){return "you win!"};
+  else if (user === 'paper' && computer === 'rock'){
+    return 'you win!';
+  }
+  else if (user === 'scissors' && computer === 'paper'){
+    return 'you win!';
+  }
+  else{
+    return 'you lose!';
   }
 }
-
 
 
 /*🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 5 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀*/
@@ -182,8 +181,8 @@ Using the miles function below do the following:
 3. Return the number of miles
 */
 
-function miles(k){
-  return k * .621;
+function miles(km){
+  return km * .621371;
 }
 
 
@@ -197,8 +196,9 @@ Using the feet function below do the following:
 */
 
 function feet(cm){
-  return Math.round(cm * .0328084);
+  return cm / 30.48;
 }
+
 
 
 
@@ -212,8 +212,10 @@ Using the annoyingSong function below do the following:
     "{number} bottles of soda on the wall, {number} bottles of soda, take one down pass it around {number left over} bottles of soda on the wall"
 */
 
-function annoyingSong(/*add your code here*/){
-      /*add your code here*/
+function annoyingSong(number){
+  for (let i = number; i > -1; i--){
+     return  `${i} bottles of soda on the wall, ${i} bottles of soda, take one down pass it around ${i - 1} bottles of soda on the wall`;
+    }
 }
 
 
@@ -233,7 +235,7 @@ Using the grade function below do the following:
 */
 
 function grade(score){
-  const grade = ['you got an A','you got an B','you got an C','you got an D','you got an F']
+  const grade = ['you got an A','you got a B','you got a C','you got a D','you got an F']
   if (score >= 90 && score <= 100){ return grade[0]}
   else if (score >= 80 && score <= 189){ return grade[1]}
   else if (score >= 70 && score <= 79){ return grade[2]}
